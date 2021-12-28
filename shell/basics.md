@@ -6,7 +6,17 @@
 #
 ```
 
-### variables, loop
+## loop over integer
+
+```
+procs=`seq 0 639`
+
+for i in $procs; do
+   rm -vr processor${i}/5000
+done
+```
+
+### loop over a specified array, nested loops
 ```
 xs=(1.00 2.00)
 ys=(200 300)
