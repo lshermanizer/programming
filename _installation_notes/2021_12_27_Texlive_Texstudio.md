@@ -1,29 +1,14 @@
-## 1a. Install LaTex compiler `TexLive`
+## 1. Install LaTex compiler `TexLive`
+
+### 1.1 Install `TexLive`
 
 Download exe from https://www.tug.org/texlive/acquire-netinstall.html
 
-Install to C:\Apps 
+Install to `C:\Apps`, it takes a long time. The executables are in `C:\Apps\texlive\2021\bin\win32` and are 32-bit. Add this to `PATH`.
 
+### 1.2 Update `TexLive`
 
-I got an error when trying to compile a document:
-```
-C:\Apps\texlive\2021\bin\win32\runscript.tlu:935: C:\Apps\texlive\2021\bin\win32\runscript.tlu:858: no appropriate script or program found: fmtutil
-Running the command C:\Apps\texlive\2021\bin\win32\fmtutil-user.exe
-kpathsea: Running mktexfmt pdflatex.fmt The command name is C:\Apps\texlive\2021\bin\win32\mktexfmt
-Process exited with error(s)
-```
-
-I found an answer at https://tex.stackexchange.com/questions/539040/no-appropriate-script-or-program-found-fmtutil.
-
-I went to https://ctan.org/tex-archive/systems/win32/w32tex/TLW64 and downloaded both files. Follow the README and expand the .zip file -> put the `win64` folder into `bin` -> update PATH as stated in the README
-
-This still didn't work.
-
-
-## 1b. Try again
-
-
-`tlmgr` is the name of the package and configuration manager included in TeX Live.
+`tlmgr` is the name of the package and configuration manager included in TeX Live. 
 
 If the following:
 ```
@@ -49,6 +34,14 @@ tlmgr update --all
 tlmgr install doublestroke
 ```
 
+### 1.3 Get 64-bit executables
+
+This won't be enough. When I run `texstudio`, it will look for `pdflatex.exe` in `bin\wins64`.
+
+I follow the instructions in https://www.tug.org/texlive/windows.html, download and run `tl64.bat` batch file (run in Admin mode) which creates 64-bit executables in `C:\Apps\texlive\2021\bin\win64`. Then update `PATH` to put the `win64` path ahead of `win32`. This works.
+
 
 ## 2. Install LaTex editor `TeXstudio`
+
+Voila!
 
