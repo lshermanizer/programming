@@ -66,6 +66,12 @@ x = np.linspace(*ax.get_xlim())
 ax.plot(x, x, '-k')
 ```
 
+## Horizontal / vertical lines
+```
+plt.axvline(x=0.22058956) #vertical line
+horizontal lines (axhline) and rectangles (axvspan).
+```
+
 ### use a colormap
 ```
 import matplotlib.pylab as pylab
