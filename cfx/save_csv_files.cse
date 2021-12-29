@@ -1,0 +1,18 @@
+
+# Example .cse file to save solution as .csv files
+# It loops through different timesteps in a transient solution
+
+!$path = './output';
+!$loc = 'Hub`; 
+
+!for ($i=1; $i<=10; $i=$i+1) {
+    > load timestep=$i
+
+    # A template of full list in `Export` can be obtained by running CFD-Post interactively
+    Export:
+        Export File = $path/${i}.csv
+        Location = $loc
+        Variable List = Pressure
+    END
+    >Export
+!}
