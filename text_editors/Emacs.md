@@ -1,4 +1,17 @@
-`M` = `Alt`, `C` = `Ctrl`
+```
+Ctrl 	e.g. C-f	Ctrl + f
+Meta	e.g. M-s	Meta + s (Alt)
+```
+
+## Emacs commands
+
+- C-x C-c : end the Emacs session
+- Ctrl+K: delete from the cursor to the end of the line.
+- C-0 C-k: delete from the cursor to the beginning of the line.
+- http://physics.clarku.edu/sip/tutorials/intro_emacs.html
+- delete from the cursor to the end of the file: (1) C-space (set-mark), (2) M-> (end-of-buffer), (3) C-w (kill-region)
+- C-u M-! : enter current time stamp
+
 
 ## Add
 
