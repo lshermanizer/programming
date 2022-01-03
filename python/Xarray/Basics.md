@@ -1,4 +1,6 @@
 ### Basics ([ref](https://www.youtube.com/watch?v=_9j7Y1-lk-o&list=PLQut5OXpV-0ir4IdllSt1iEZKTwFBa7kO&index=46&t=103s))
+
+
 ```
 import xarray as xr
 
@@ -56,6 +58,24 @@ heights.sel[time=slice('2018-01-01T06:00', '2018-01-31T06:00'), lat=30]   # sele
 
 heights.sel[{'lon': heights['lon']>270}]                                  # specify upper/lower bound
 ```
+
+### Use `where` for data slicing
+```
+ds_sel = ds.where( ( (ds['var1'] >= 0) & (ds['var2'] >= 0) ), drop=True )
+```
+
+### use `where` and `mask` together to identify a data subset and update it in place
+
+`sel` and `isel` can ONLY be used to select data, they cannot be used to update the data.
+
+```
+mask = ( (ds['time'] >= time_0) &
+         (ds['time'] <  time_1) &
+         (ds['user'] == 'Sherman') )
+ds['wage'] = ds.where(mask, ds['wage'] + 1000, ds['wage']) # have a raise if met the mask condition
+
+```
+
 
 ### Arithmetic ([ref](https://www.youtube.com/watch?v=_9j7Y1-lk-o&list=PLQut5OXpV-0ir4IdllSt1iEZKTwFBa7kO&index=46&t=103s))
 ```
