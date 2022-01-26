@@ -1,11 +1,11 @@
 
-## visualize
+## list/visualize boundary conditions (BCs）
 ```
-/pbc,all,0      ! do not show
+/pbc,all,0      ! do not show any
 /pbc,ce,,1      ! show constrained equations (CE)
 /pbf,temp,,1    ! show temperature load
 /psf,pres,1,1,on    ! show pressure load
-/psym,ndir,1    ! show locl cs
+/psym,ndir,1    ! show local cs
 cplist          ! list couplings (CP)
 celist
 dlist           ! list DOF constraints
@@ -14,7 +14,7 @@ sflist          ! list pressure mapped to nodes
 sfelist         ! list pressure mapped to elements
 ```
 
-## set 
+## set BCs
 ```
 cmsel,s,elem_comp
 cmsel,a,node_comp
