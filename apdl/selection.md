@@ -8,10 +8,6 @@ rlist,5     ! list all real constants with element type 5
 mplist      ! list all materials
 ```
 
-### visualize
-```
-/pnum,mat,1 ! display material numbers
-```
 
 ### make selection
 ```
