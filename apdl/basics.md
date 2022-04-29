@@ -21,7 +21,7 @@ ansys182 -pp -np 2 -b <script.mac> output.log
 ```
 /edge,on
 
-/colr,elem,1    ! change color of elements
+/color,elem,1    ! change color of elements
 
 plns,u,sum      ! plot Usum
 
