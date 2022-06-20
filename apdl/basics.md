@@ -13,6 +13,8 @@ ansys182 -pp -np 2 -b <script.mac> output.log
 
 
 ### DB
+ANSYS DB is a snapshot of what's in the memory at the time of save.
+
 If `jobname.db` already exists and I save again, the old one will be copied to `jobname.dbb` as a back-up.
 
 
