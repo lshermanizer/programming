@@ -15,4 +15,3 @@
 ## 2. ANSYS
 - Memory: workspace space (`-m`) = database space (`-db`) + scratch space.
 - Guideline: Use 1G workspace and 10G disk space per million DOFs.
-- Graphics: `ansys192 -g -d 3d` uses the 3D graphics. `PlotCtrls` -> `Pan, Zoom, Rotate...` -> toggle on Dynamic Mode and Lights.
