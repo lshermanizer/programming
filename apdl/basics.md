@@ -1,5 +1,6 @@
-### Run an analysis
+### Command line arguments
 ```
+ansys182 -g -d 3d
 ansys182 -pp -np 2 -b <script.mac> output.log
 ```
 
@@ -9,6 +10,10 @@ ansys182 -pp -np 2 -b <script.mac> output.log
 /input, mac_name, mac                   # execute a macro
 *use, mac_name.mac, 'comp_name`, 1, 360 # use a macro as a function and passes arguments
 ```
+
+
+### DB
+If `jobname.db` already exists and I save again, the old one will be copied to `jobname.dbb` as a back-up.
 
 
 ### Check status
