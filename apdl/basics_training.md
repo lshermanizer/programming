@@ -15,3 +15,34 @@
 ## 2. ANSYS
 - Memory: workspace space (`-m`) = database space (`-db`) + scratch space.
 - Guideline: Use 1G workspace and 10G disk space per million DOFs.
+- Unit system: `/units` lets you specify a unit system, but it is not enforced, simply a book-keeping record.
+
+
+## 3. Analysis
+- General steps:
+  - 1. problem definition (what type of analysis? what elements?)
+  - 2. pre (materials, mesh, BCs)
+  - 3. solve (loads, solve)
+  - 4. post
+
+
+
+- Element attributes:
+  - 1. Element types: determines dimensionality, DOFs, element shape, shape function.
+  - 2. Real constants: define propertiese that cannot be defined by element shape (e.g. cross section of a beam element). Most 3D solid elements do not require real constants.
+  - 3. Material properties: use `/mplib`, `mpread`, `mp` commands
+- Stress analysis (or strcutural analysis): general term used to describe analyses where the results include displacements, strains, and stresses. Includes several types such as static, transient, modal, spectrum, harmonic, and explicit dynamics. 
+
+
+- Types of loads
+  - 1. DOF constraints (e.g. displacement constraints `d`, enforce symmetry or anti-symmetry )
+  - 2. Concentrated loads (e.g. point loads `f`)
+  - 3. Surface loads (e.g. pressure `sf`, `sfe`, positive=compressive i.e. towards centroid of the element)
+  - 4. Body loads (e.g. temperature `tunif`, `tref`)
+  - 5. Inertia loads (loads due to structural mass or inertia, such as gravity (`acel`), rotational velocity (`omega` in unit [rad/s] (or more generally, [rad/time unit]) and is applied about the Global Cartesian coordinate system axes), and rotational acceleration (`domega`))
+
+
+- Postprocessing
+  - 1. Deformed shape (`pldisp` and `andisp` for animation)
+  - 2. Stresses (component and principal stresses). Nodal solution (`plnsol`, `ancntr` for animation) is smooth and continuous (stresses are averaged at nodes). Element solution (`plesol`) is not (no averaging).
+  - 3. Reaction forces
