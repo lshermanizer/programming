@@ -17,8 +17,21 @@ ANSYS DB is a snapshot of what's in the memory at the time of save.
 
 If `jobname.db` already exists and I save again, the old one will be copied to `jobname.dbb` as a back-up.
 
+`fini` then `/clear` clears the current memory. It is equivalent to existing and then re-entering.
 
-### Check status
+
+### File management
+```
+/filname,my_job_name              ! define jobname. defaults to `file` and cannot exceed 32 characters
+/assign,emat,my_job_name,my_emat  ! define name and extension of an ANSYS file away from default
+```
+
+Good practice to use descriptive job name. Good practice to keep `.log`, `.db`, `.rst`, and `.s01`, `.s02`, ... (load step files).
+
+
+### Analysis
+
+
 ```
 /stat, global
 /stat, solu
