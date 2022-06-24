@@ -24,32 +24,18 @@ If `jobname.db` already exists and I save again, the old one will be copied to `
 ```
 /filname,my_job_name              ! define jobname. defaults to `file` and cannot exceed 32 characters
 /assign,emat,my_job_name,my_emat  ! define name and extension of an ANSYS file away from default
+*get,jname,active,,jobnam         ! get current jobname
+
 ```
 
 Good practice to use descriptive job name. Good practice to keep `.log`, `.db`, `.rst`, and `.s01`, `.s02`, ... (load step files).
 
 
-### Analysis
-
+### Useful commands
 
 ```
+/nerr, 100, 100, off ! by default only the first 5 messages will be print. this relaxes that 
+
 /stat, global
 /stat, solu
-```
-
-### Display
-```
-/edge,on
-
-/color,elem,2               ! change color of elements to 2 (magenta)
-/color,defa                 ! reset to the default color setting
-/color,cm,2,component_name  ! set color 2 (magenta) to a specific component (component_name)
-
-/number,1                   ! sets behavior for /pnum. 1=display color, not number; 0=display color and number; etc.
-/pnum,mat,1                 ! color by material number
-/pnum,mat,0                 ! turn it off
-
-plns,u,sum                  ! plot Usum
-
-/cont,,10,0,,10             ! change contour
 ```
