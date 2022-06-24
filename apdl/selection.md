@@ -1,3 +1,11 @@
+Select based on:
+- num/pick
+- attached to
+- by location
+- by attributes (e.g. material number, real constant set number, etc.)
+- exterior
+- by results
+
 
 ### list
 ```
