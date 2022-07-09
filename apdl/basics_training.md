@@ -18,8 +18,7 @@
 - Unit system: `/units` lets you specify a unit system, but it is not enforced, simply a book-keeping record.
 
 
-## 3. Analysis
-Types of analysis:
+## 3. Types of analysis:
 * Structural (or stress):
   * General term used to describe analyses where the results include displacements, strains, and stresses. Includes several types such as static, transient, modal, spectrum, harmonic, and explicit dynamics.  
   * Static or dynamic?: When a body is subjected to a loading/excitation, it responds with 3 types of forces: static (due to stiffness), intertia (due to mass), and damping forces (due to damping). A static analysis considers the first only. A dynamic analysis considers all 3.
@@ -28,32 +27,45 @@ Types of analysis:
 * Fluid
 * Coupled
 
-General steps:
+## 4. General steps of an analysis
 - 1. problem definition (what type of analysis? what elements?)
 - 2. pre (materials, mesh, BCs)
 - 3. solve (loads, solve)
 - 4. post
 
 
-Element attributes:
-1. Element types: determines dimensionality, DOFs, element shape, shape function.
+### 4.1 Element attributes:
+Element types: determines dimensionality, DOFs, element shape, shape function.
   - Line elements (beam, spar, spring)
   - Shells (model thin panels or curved surfaces)
   - 2D solids (works in X-Y plane)
   - 3D solids (8-noded hex SOLID45, 10-noded tets SOLID92, 20-nonded brick SOLID95 which can also degenerate into pyramids, prism, and tets)
-2. Real constants: define propertiese that cannot be defined by element shape (e.g. cross section of a beam element). Most 3D solid elements do not require real constants.
-3. Material properties: use `/mplib`, `mpread`, `mp` commands
+
+Real constants: define propertiese that cannot be defined by element shape (e.g. cross section of a beam element). Most 3D solid elements do not require real constants.
+
+Material properties: use `/mplib`, `mpread`, `mp` commands
 
 
-- Types of loads
-  - 1. DOF constraints (e.g. displacement constraints `d`, enforce symmetry or anti-symmetry )
-  - 2. Concentrated loads (e.g. point loads `f`)
-  - 3. Surface loads (e.g. pressure `sf`, `sfe`, positive=compressive i.e. towards centroid of the element)
-  - 4. Body loads (e.g. temperature `tunif`, `tref`)
-  - 5. Inertia loads (loads due to structural mass or inertia, such as gravity (`acel`), rotational velocity (`omega` in unit [rad/s] (or more generally, [rad/time unit]) and is applied about the Global Cartesian coordinate system axes), and rotational acceleration (`domega`))
+### 4.2 Types of loads
+1. DOF constraints (e.g. displacement constraints `d`, enforce symmetry or anti-symmetry )
+2. Concentrated loads (e.g. point loads `f`)
+3. Surface loads (e.g. pressure `sf`, `sfe`, positive=compressive i.e. towards centroid of the element)
+4. Body loads (e.g. temperature `tunif`, `tref`)
+5. Inertia loads (loads due to structural mass or inertia, such as gravity (`acel`), rotational velocity (`omega` in unit [rad/s] (or more generally, [rad/time unit]) and is applied about the Global Cartesian coordinate system axes), and rotational acceleration (`domega`))
 
 
-- Postprocessing
-  - 1. Deformed shape (`pldisp` and `andisp` for animation)
-  - 2. Stresses (component and principal stresses). Nodal solution (`plnsol`, `ancntr` for animation) is smooth and continuous (stresses are averaged at nodes). Element solution (`plesol`) is not (no averaging). Regions where they differ a lot are where mesh may be too coarse.
-  - 3. Reaction forces (`prrsol`): the sum of reaction forces must equal the sum of applied loads.
+### 4.3 Types of solver
+1. Direct elimination (linear)
+   a. Frontal
+   b. Sparse (usually the default)
+2. Iterative (guess answer -> error check -> update)
+   a. PCG (Pre-conditioned Conjugate Gradient)
+   b. ICCG (Incomplete Cholesky Conjugate Gradient)
+   c. JCG (Jacobi Conjugate Gradient)
+3. Parallel 
+
+
+### 4.4 Postprocessing
+  - Deformed shape (`pldisp` and `andisp` for animation)
+  - Stresses (component and principal stresses). Nodal solution (`plnsol`, `ancntr` for animation) is smooth and continuous (stresses are averaged at nodes). Element solution (`plesol`) is not (no averaging). Regions where they differ a lot are where mesh may be too coarse.
+  - Reaction forces (`prrsol`): the sum of reaction forces must equal the sum of applied loads.

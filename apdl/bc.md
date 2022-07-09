@@ -1,3 +1,8 @@
+# Boundary conditions
+
+CPs: `UX1=UX2`
+
+CEs: can define a more general, linear relationship between two DOFs such as `a1*UX1 + a2*UX2 + a3*UX3 = constant`. 
 
 ## list/visualize boundary conditions (BCs）
 ```
@@ -29,3 +34,4 @@ csys,201
 nrotate,all
 f,all,FZ,0          ! apply FZ force on selecte node
 ```
+
