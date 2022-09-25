@@ -21,6 +21,25 @@ This formula returns the value from the vector that is cloest (in absolute) to t
 
 ## Tips
 
+
+Use `Formulas` -> `Formula Auditing` -> `Trace Precedents` and `Trace Dependents` to identify related cells. It is also helpful to identify where error happens. `Evaluate Formula` is useful to breakdown complex/unfamiliar formulas.
+
 `Ctrl + G` -> `Specials...` -> Toggle on `Formulas` and keep all options toggled -> This shows all cells the have formulas 
 
-Use `Formulas` -> `Formula Auditing` -> `Trace Precedents` and `Trace Dependents` to identify related cells. It is also helpful to identify where error happens
+Navigate a workbook:
+
+- `Ctrl + Arrow`: jump to last cell in the direction of arrow
+- `Ctrl + Shift + Arrow`: same as above but also selecting all the data
+- `Ctrl + Home/End`: jump to `top left` or `bottom right` cell
+- `Ctrl + .`: within an existing selection, cycle through 4 corners
+- `Ctrl + PgUp/Dn`: cycle through sheets
+
+Function shortcuts:
+
+- `F1`: (1) Launch Excel help pane, (2) If in a dialogue window, open a browser page with specific help info 
+- `F2`: Go to edit mode of the active cell
+- `F4`: Two functions (1) repeat the last action taken, (2) toggle between A1, $A$1, A$1, $A1
+- `F9`: Calculate all workbook formula. Change `Calculation Options` can change whether formulas are automatically executed (default behavior) or only when asked.
+
+Alt key shortcuts:
+- Quick access to tools from the ribbon menu
