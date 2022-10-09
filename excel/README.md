@@ -29,7 +29,11 @@ This formula returns the value from the vector that is cloest (in absolute) to t
 Common `is` statements: `isblank`, `isnumber`, `istext`, `iserror`, `iseven`, `isodd`, `islogical`, `isformula`
 
 
+
+
 ## Tips
+
+Use `named arrays` to speed up references to a certain data block.
 
 
 Use `Formulas` -> `Formula Auditing` -> `Trace Precedents` and `Trace Dependents` to identify related cells. It is also helpful to identify where error happens. `Evaluate Formula` is useful to breakdown complex/unfamiliar formulas.
