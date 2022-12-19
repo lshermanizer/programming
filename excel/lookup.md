@@ -30,8 +30,23 @@ Other discussions:
 
 ## index, match
 
-`index` returns the value of a cell identified by row and column id within a given data block (can be 2D), e.g. `index($A$1:$C$3, 2, 2)` will return cell value `aluminum`.
+`index` returns the value of a cell identified by row and column id within a given data block (can be 2D), e.g.:
+```
+index($A$1:$C$3, 2, 2)
+```
+will return cell value `aluminum`.
 
-`match` returns the position of a cell within a given data array (cannot be a 2D data block) identified by a value. Syntax is `match("aluminmum", $B$1:$B$3, [option])` will return value `2`. `option=0` will give exact match, `-1` find largest value < or <=, `1` find smaller value > or >=.
+
+`match` returns the position of a cell within a given 1D data array (a single column, or a single row; cannot be a 2D data block) identified by a value. Syntax is:
+```
+match("aluminmum", $B$1:$B$3, [option])
+```
+will return value `2`. `option=0` will give exact match, `-1` find largest value < or <=, `1` find smaller value > or >=.
+
+`index` and `match` can be combined, e.g.:
+```
+=index(B2:D4, match('Pants',A2:A4,0), match('Medium',B1:D1,0))
+```
+It acts like a LOOKUP functon, but it can find values in any column or row in a 2D array.
 
 ## offset
