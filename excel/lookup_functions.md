@@ -62,9 +62,10 @@ will return value `2`. `option=0` will give exact match, `-1` find largest value
 ```
 It acts like a LOOKUP functon, but it can find values in any column or row in a 2D array.
 
+
 ## choose
 
-`choose` can choose from a pre-defined list. The list can be a mixed data type including numbers, cell references, defined names, formulas, texts, etc.
+`choose` can select an item from a pre-defined list. The list can be a mixed data type including numbers, cell references, defined names, formulas, texts, etc.
 
 ```
 =choose(1,'A','B','C')
@@ -75,5 +76,11 @@ will return `A` which is the first (first arg = 1) element in the list.
 =average(choose(2,A1:A10,B1:B10,C1:C10))
 ```
 will return an average of cells B1:B10 which is the second (first arg = 2) element in the list (which is the B1:B10 array).
+
+It can also be used dynamically, e.g,.:
+```
+=average(E4:choose(3,E4,F4,G4))
+```
+will return an average of E4:G4 (first arg = 3).
 
 ## offset
