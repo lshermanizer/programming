@@ -37,6 +37,8 @@ Common `is` statements: `isblank`, `isnumber`, `istext`, `iserror`, `iseven`, `i
 
 ## Tips
 
+Set data type to `;;;` to hide it.
+
 Use `named arrays` to speed up references to a certain data block.
 
 
