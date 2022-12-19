@@ -18,6 +18,10 @@ This formula returns the value from the vector that is cloest (in absolute) to t
 
 `search` returns the index at which the searched character is found. For example use it within the `left` function argument to find the characters before the `@` sign: i`=LEFT(J2,SEARCH("@",J2)-1)`
 
+
+### Data validation
+can be used to create drop-down menus.
+
 ### Logical statements
 
 `and(B2>0, C2=='True')` and `or` include multiple logical tests at once. They can be used together with `if`, e.g.: `if(and(B2>32, C2=='True'), 'Ok')`
