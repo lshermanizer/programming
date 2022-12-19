@@ -13,7 +13,11 @@ Same concept for `column` and `columns`.
 
 `vlookup` and `hlookup` are commonly used to work with 2 different data tables with common fields (they do not have to have the same ordering of data).
 
-Syntax: `vlookup(lookup_x, data_table_xy, col_id_y, [option])` where `option=0` is looking for an exact match or `option=1` looking for an approximate match.
+Syntax:
+```
+vlookup(lookup_x, data_table_xy, col_id_y, [option])
+```
+where `option=0` is looking for an exact match or `option=1` looking for an approximate match.
 
 Similar concept for `hlookup` if the `data_table_xy` is transposed.
 
