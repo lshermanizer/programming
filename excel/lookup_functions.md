@@ -32,6 +32,15 @@ Other discussions:
 1. `vlookup` can be used with `iferror` to take care of empty values, `iferror(vlookup(lookup_x, data_table_xy, col_id_y, 0), 'No data')`
 
 
+## xlookup
+New Excel function that is more powerful than vlookup/hlookup.
+```
+=xlookup(lookup_value, lookup_array, return_array, if_not_found, match_mode, search_mode)
+```
+
+It can look up values anywhere in the array (up or down, left or right). It can also do dynamic arrays i.e. it can fill multiple cells.
+
+
 ## index, match
 
 `index` returns the value of a cell identified by row and column id within a given data block (can be 2D), e.g.:
@@ -52,5 +61,19 @@ will return value `2`. `option=0` will give exact match, `-1` find largest value
 =index(B2:D4, match('Pants',A2:A4,0), match('Medium',B1:D1,0))
 ```
 It acts like a LOOKUP functon, but it can find values in any column or row in a 2D array.
+
+## choose
+
+`choose` can choose from a pre-defined list. The list can be a mixed data type including numbers, cell references, defined names, formulas, texts, etc.
+
+```
+=choose(1,'A','B','C')
+```
+will return `A` which is the first (first arg = 1) element in the list.
+
+```
+=average(choose(2,A1:A10,B1:B10,C1:C10))
+```
+will return an average of cells B1:B10 which is the second (first arg = 2) element in the list (which is the B1:B10 array).
 
 ## offset
