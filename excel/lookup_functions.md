@@ -83,4 +83,16 @@ It can also be used dynamically, e.g,.:
 ```
 will return an average of E4:G4 (first arg = 3).
 
+
 ## offset
+
+`offset` is similar to `index`, but it not only can return a cell, but can also return a range.
+
+```
+=offset(reference, rows, columns, [height], [width])
+```
+
+It can be used together with `counta` to return the last item of a growing list by achieving dynamic cell reference:
+```
+=offset(A1, counta(A:A)-1, 0)
+```
