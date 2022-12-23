@@ -1,6 +1,15 @@
 
 
 
+## Table of contents
+
+- [Navigate workbook](./navigate_workbook.md)
+- [logical statements](./logical_statements.md): `and`, `or`, `not`, `if`, `iferror`, `isblank`, `isnumber`, `istext`, `iserror`, `iseven`, `isodd`, `islogical`, `isformula`
+- [Lookup functions](./lookup_and_references.md): `left`, `search`, `row`, `column`, `vlookup`, `hlookup`, `xlookup`, `index`, `match`, `choose`, `offset`.
+- [Text functions](./text_functions.md): `trim`, `upper`, `lower`, `proper`, `&` (concatenate), `left`, `mid`, `right`, `len`, `text`, `value`, `search`, `substitute`
+- [Date and time functions](./date_and_time.md): `datevalue` and `timevalue`, `today()` and `now()`, `eomonth`, `yearfrac`, `weekday`, `workday`, `networkdays`, and `datedif`
+- [Dynamic arrays](./dynamic_arrays.md): spill range, `sort`, `sortby`, `filter`, `unique`, `sequence`, `randarray`, `frequency`, `transpose`, use `choose` to combine dynamic arrays, and use `let` to increase formula readability
+
 
 ```
 Base!C4:C25   =  a vector of values
@@ -12,32 +21,17 @@ This formula returns the value from the vector that is cloest (in absolute) to t
 =INDEX(Base!C4:C25, MATCH(MIN(ABS(Base!C4:C25-Avoidance!C10)),ABS(Base!C4:C25-Avoidance!C10),0))
 ```
 
-## Functions
 
-`left` returns the first few characters.
-
-`search` returns the index at which the searched character is found. For example use it within the `left` function argument to find the characters before the `@` sign: i`=LEFT(J2,SEARCH("@",J2)-1)`
-
-
-### Data validation
+## Data validation
 can be used to create drop-down menus.
 
-### Logical statements
-
-`and(B2>0, C2=='True')` and `or` include multiple logical tests at once. They can be used together with `if`, e.g.: `if(and(B2>32, C2=='True'), 'Ok')`
-
-`not` function is the same as the `<>` operator to test whether a logical statement is not true.
-
-`iferror(value, value_if_error)` function replaces default error messages such as `#N/A`, `#REF!`, etc. Use it on the outer layer of a function.
-
-Common `is` statements: `isblank`, `isnumber`, `istext`, `iserror`, `iseven`, `isodd`, `islogical`, `isformula`
-
-
+## Table
+Formatting data as a table enables `sructured references` like columns in Pandas.
 
 
 ## Tips
 
-Set data type to `;;;` to hide it.
+On a cell, right click `Format Cells` -> Set data type to `;;;` to hide it.
 
 Use `named arrays` to speed up references to a certain data block.
 
@@ -46,13 +40,6 @@ Use `Formulas` -> `Formula Auditing` -> `Trace Precedents` and `Trace Dependents
 
 `Ctrl + G` -> `Specials...` -> Toggle on `Formulas` and keep all options toggled -> This shows all cells the have formulas 
 
-Navigate a workbook:
-
-- `Ctrl + Arrow`: jump to last cell in the direction of arrow
-- `Ctrl + Shift + Arrow`: same as above but also selecting all the data
-- `Ctrl + Home/End`: jump to `top left` or `bottom right` cell
-- `Ctrl + .`: within an existing selection, cycle through 4 corners
-- `Ctrl + PgUp/Dn`: cycle through sheets
 
 Function shortcuts:
 

@@ -1,4 +1,10 @@
 
+## left
+`left` returns the first few characters.
+
+## search
+`search` returns the index at which the searched character is found. For example use it within the `left` function argument to find the characters before the `@` sign: i`=LEFT(J2,SEARCH("@",J2)-1)`
+
 
 ## row/rows, column/columns
 
