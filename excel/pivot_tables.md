@@ -25,6 +25,13 @@ This will create multiple tabs for each value of a given filter.
 
 Conditional formating can be applied to pivot tables just like normal data ranges.
 
-## calculated fields
+## calculated fields and items 
 
 Pivot Table -> Analyze -> Fields, Items, & Sets -> Calculated Field... -> Define a name and a formula.
+
+Note: if the calculation includes count e.g. revenue per title, directly using `count()` function e.g. `="revenue"/count("title")` will not work because Excel interprets it as sum. The work-arond is to create a new column filled with 1 in the source data, and then use it e.g. `="revenue"/"title count"`.
+
+Pivot Table -> Analyze -> Fields, Items, & Sets -> Calculated Item...
+
+Not very user-friendly, pretty buggy, conflicts with groups, messes up the grand total (double-counting). Recommended to use grouping instead.
+

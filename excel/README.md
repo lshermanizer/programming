@@ -9,6 +9,7 @@
 - [Text functions](./text_functions.md): `trim`, `upper`, `lower`, `proper`, `&` (concatenate), `left`, `mid`, `right`, `len`, `text`, `value`, `search`, `substitute`
 - [Date and time functions](./date_and_time.md): `datevalue` and `timevalue`, `today()` and `now()`, `eomonth`, `yearfrac`, `weekday`, `workday`, `networkdays`, and `datedif`
 - [Dynamic arrays](./dynamic_arrays.md): spill range, `sort`, `sortby`, `filter`, `unique`, `sequence`, `randarray`, `frequency`, `transpose`, use `choose` to combine dynamic arrays, and use `let` to increase formula readability
+- [Pivot tables](./pivot_tables.md)
 
 
 ```
