@@ -1,6 +1,7 @@
 `/graph,power` power graphics is default. Plots only the visible surfaces, not the interior.
 
 
+
 ```
 /edge,on
 
@@ -15,4 +16,18 @@
 plns,u,sum                  ! plot Usum
 
 /cont,,10,0,,10             ! change contour
+
+/eshape,1     ! The /ESHAPE command allows beams, shells, current sources, and certain special-purpose elements
+              ! or elements with special options to be displayed as solids with the shape
+              ! determined from the real constants, section types, or other information.
+
+/view,1,1,1,1               ! isometric view
+```
+
+## change background color to white
+```
+/RGB,INDEX,100,100,100, 0
+/RGB,INDEX, 80, 80, 80,13
+/RGB,INDEX, 60, 60, 60,14
+/RGB,INDEX, 0, 0, 0,15
 ```
