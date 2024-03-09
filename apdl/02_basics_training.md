@@ -69,3 +69,5 @@ Material properties: use `/mplib`, `mpread`, `mp` commands
   - Deformed shape (`pldisp` and `andisp` for animation)
   - Stresses (component and principal stresses). Nodal solution (`plnsol`, `ancntr` for animation) is smooth and continuous (stresses are averaged at nodes). Element solution (`plesol`) is not (no averaging). Regions where they differ a lot are where mesh may be too coarse.
   - Reaction forces (`prrsol`): the sum of reaction forces must equal the sum of applied loads.
+
+displacements are continuous throughout the structure. Stress and strain are not necessarily continuous across element boundaries.
