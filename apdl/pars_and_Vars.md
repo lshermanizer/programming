@@ -1,5 +1,25 @@
 # Parameters and variables
 
+
+## APDL language: parameters
+Parameter name must begin with a letter (underscore as starting character is reserved for ANSYS use), cannot exceed 32 characters, and are not case-sensitive. 
+```
+Rin=2
+Rout=3
+dr=Rout-Rin
+pi=acos(-1)
+dArea=pi*dr**2
+jobname='project_name'
+
+nid=192302
+nsel,s,node,,nid              ! use of parameter in a command
+*get,xval_nid,node,nid,loc,x  ! retrieve x coordinate value of node # nid to parameter xval_nid
+*stat,xval_nid                ! display
+*vwrite,nid,xval_nid
+('X location for node ', F4.0, ' is ', F8.2)  ! this will be printed in the output window
+```
+
+
 ## Specify parameters/variables
 ```
 # specify a parameter
