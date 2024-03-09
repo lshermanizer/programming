@@ -13,7 +13,11 @@
 /pnum,mat,1                 ! color by material number
 /pnum,mat,0                 ! turn it off
 
-plns,u,sum                  ! plot Usum
+plns,u,sum                  ! plot Usum (plnsol, display nodal solution)
+ples,u,sum                  ! plesol, display elem solution
+
+prns                        ! print nodal solution results
+pres                        ! print elem solution results
 
 /cont,,10,0,,10             ! change contour
 
