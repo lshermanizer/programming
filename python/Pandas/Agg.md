@@ -13,8 +13,24 @@ df['income'].unique()
 df['income'].nunique()
 df['income'].sum()
 df['income'][df['category']=='Adult'].sum()
+```
+
+### Example of groupby and then agg
+```
+dfgrp = df.groupby(['TR', 'Mode', 'EO'])
+list_keys = list(dfgrp.groups.keys()
+dfgrp.get_group(list_keys[0])
+dfgrp.get_group(('TR1234', '1T', 5))
+
+dfagg = df.groupby(['TR', 'Mode', 'EO']).agg({'%EL': 'idxmax', 'EO': 'first'})
+dfagg['RPM'] = df.loc(dfagg['%EL'], 'RPM').values # get RPM that corresponds to the max %EL
+dfagg['%EL'] = df.groupby(['TR', 'Mode', 'EO']).agg({'%EL': 'mean'}) # overwrite the %EL aggregration
+dfagg
+
+dfagg.loc[(('TR1234', '1T', 5)]
 
 ```
+
 
 ### Specify a `dict` to define `.agg()`
 ```
