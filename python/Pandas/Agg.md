@@ -2,6 +2,7 @@
 
 [ref1](https://queirozf.com/entries/pandas-dataframe-groupby-examples)
 [ref2](https://www.shanelynn.ie/summarising-aggregation-and-grouping-data-in-python-pandas/)
+[ref3](https://medium.com/mastering-the-art-of-data-science-a-comprehensive/part-5-groupby-operations-and-multi-level-index-mastering-data-manipulation-with-pandas-4041d0ffe384)
 
 
 ### Dataframe summary statistics
@@ -17,17 +18,28 @@ df['income'][df['category']=='Adult'].sum()
 
 ### Example of groupby and then agg
 ```
+# groupby
 dfgrp = df.groupby(['TR', 'Mode', 'EO'])
 list_keys = list(dfgrp.groups.keys()
 dfgrp.get_group(list_keys[0])
 dfgrp.get_group(('TR1234', '1T', 5))
 
+# agg
 dfagg = df.groupby(['TR', 'Mode', 'EO']).agg({'%EL': 'idxmax', 'EO': 'first'})
 dfagg['RPM'] = df.loc(dfagg['%EL'], 'RPM').values # get RPM that corresponds to the max %EL
 dfagg['%EL'] = df.groupby(['TR', 'Mode', 'EO']).agg({'%EL': 'mean'}) # overwrite the %EL aggregration
 dfagg
 
-dfagg.loc[(('TR1234', '1T', 5)]
+# access multi-index information (ref3)
+dfagg.index # returns all multi-index combinations e.g. ('TR1234', '1T', 5), ('TR1234', '1F', 5), ('TR1034', '1T', 5), etc.
+dfagg.index.levels # returns a list of unique values for each index level e.g. [['TR1234', TR1034'], ['1F', '1T'],[5, 7, 10]]
+dfagg.index.names # returns a list of the index names e.g. ['TR', 'Mode', 'EO']
+
+# access info in the aggregated dataframe
+dfagg.loc[(('TR1234', '1T', 5)] # get one entry by using tuple
+dfagg.xs(`  
+dfagg.loc['TR1234']  # use the outermost index
+dfagg.loc[['TR1234', 'TR3752']]  # use the outermost index, use multiple values at once
 
 ```
 
