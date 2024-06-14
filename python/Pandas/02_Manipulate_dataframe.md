@@ -3,7 +3,13 @@
 
 ### Create a column from another dataframe
 ```
-df_new['BaseMode'] = df_base['Mode'] # cannot do this on a dataframe level (need to use .copy() method), but legal on column level
+# cannot do this on a dataframe level (need to use .copy() method), but legal on column level
+df_new['BaseMode'] = df_base['Mode']
+```
+
+### Set data type with `.astype()`
+```
+df['Name'] = 'M' + df['ModeID'].astype(str)
 ```
 
 ### NaN
