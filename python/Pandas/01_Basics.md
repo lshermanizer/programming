@@ -1,36 +1,52 @@
-
+### Initialize an empty dataframe
+```
+df = pd.DataFrame({})
+```
 
 ### Quickly inspect a dataframe
 ```
 print(df.info(verbose = True))
-df.columns # get columns
-df.index   # get index
-col_names = list(df.columns.levels[0]) # get level-1 column names for a multi-index dataframe
 df.head()
 ```
 
-### Data selection [ref](https://www.shanelynn.ie/pandas-iloc-loc-select-rows-and-columns-dataframe/)
+### Column and index
+```
+df.columns   # get columns
+df.index     # get index
+col_names = list(df.columns.levels[0])   # get level-1 column names for a multi-index dataframe
+```
+
+### Indexing
+
+#### `.iloc`
 ```
 df.iloc[0]     # 0th row
 df.iloc[:,0]   # 0th col
 df.iloc[0:3,0] # rows 0 through 3, 0th col
-
-df.loc['CASE_0_0'] 
-df.loc[['CASE_0_0', 'CASE_0_10'], ['Success', 'Weight', 'CoG', 'Round']]
-df.loc[df['Success'] == True, ['Weight', 'CoG']] # use boolean to select data
-df.loc[df['Round'].str.endswith("5")]
-df.loc[df['company_name'].apply(lambda x: len(x.split(' ')) == 4)]  # Use lambda function to select rows where the company name has 4 words in it.
-
+df.iloc[0]['ModeName'] # iloc to select row, column name to select column
 ```
-
 Note that `.iloc` returns a Pandas Series when one row is selected, and a Pandas DataFrame when multiple rows are selected, or if any column in full is selected. To counter this, pass a single-valued list if you require DataFrame output.
 
 
-### Randomly select, and get what's left
+#### `.loc`
+```
+df.loc['CASE_0_0'] 
+df.loc[['CASE_0_0', 'CASE_0_10'], ['Success', 'Weight', 'CoG', 'Round']]
+```
+
+#### other indexing methods, boolean, or `.apply`
+```
+df.loc[df['Success'] == True, ['Weight', 'CoG']] # use boolean to select data
+df.loc[df['Round'].str.endswith("5")]
+df.loc[df['company_name'].apply(lambda x: len(x.split(' ')) == 4)]  # Use lambda function to select rows where the company name has 4 words in it.
+```
+
+Other:
 ```
 df_train = df_data.groupby('seed').sample(frac=5/6, random_state=1)
 df_test = df_data[~df_data.index.isin(df_train.index)]
 ```
+
 
 
 ### Drop column data [ref](https://www.youtube.com/watch?v=ncpYohRYG3I)
@@ -54,6 +70,11 @@ df.columns = [col.upper() for col in df.columns] # use list comprehension to upd
 ### Set column names
 ```
 df.columns = ['channel', 'downstream_spacing', 'freestream', 'wake']
+```
+
+### Drop duplicates
+```
+df.drop_duplicates('ModeName', keep='first', inplace=True)
 ```
 
 
