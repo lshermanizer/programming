@@ -18,6 +18,16 @@ df_inst2 = pd.read_csv('instrument2.csv')              # it has the same number 
 df_all   = pd.concat([df_inst1, df_inst2], axis='columns')
 ```
 
+### Merge similar to the `VLOOKUP` in Excel
+
+`df` stores measured data for a base design and has columns `BaseMode`, `Base%EL`, etc.
+
+`df2` stores essentially a mapping from the base design to new design and has columns `BaseMode`, `NewMode`, `NewModeID`, etc.
+
+```
+df = pd.merge(df, df2[['BaseMode', 'NewMode', 'NewModeID`]], on='BaseMode', how='left')
+```
+
 
 ### Merge and join ([ref](https://www.youtube.com/watch?v=slUGaLyLJX0&list=PLQut5OXpV-0ir4IdllSt1iEZKTwFBa7kO&index=89))
 
