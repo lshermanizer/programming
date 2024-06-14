@@ -11,8 +11,8 @@ df.head()
 
 ### Column and index
 ```
-df.columns   # get columns
-df.index     # get index
+df.columns   # return a list of column names
+df.index     # return a list of index
 col_names = list(df.columns.levels[0])   # get level-1 column names for a multi-index dataframe
 ```
 
@@ -48,29 +48,25 @@ df_test = df_data[~df_data.index.isin(df_train.index)]
 ```
 
 
+### Set or rename column names
+```
+df.columns = ['channel', 'downstream_spacing', 'freestream', 'wake']
 
-### Drop column data [ref](https://www.youtube.com/watch?v=ncpYohRYG3I)
-```
-df.drop(['Humidity', 'Pressure', 'Salinity'], axis='columns', inplace=True) 
-```
+df.columns = [col.upper() for col in df.columns] # use list comprehension to update the column names to be all uppercase
 
-### Rename column names [ref](https://www.youtube.com/watch?v=ncpYohRYG3I)
-```
-df.columns --> get a list of names, for example 'TIME', 'TAIR', 'WSPD'
 name_mapping = {'TIME': 'Time',
                 'TAIR': 'Air temperature',
                 'WSPD': 'Wind speed',
-                'WDIR': 'Wind direction' # having an extra key that's not in the column names is okay
+                'WDIR': 'Wind direction' # having an extra key that's not in the column names is also okay
                }
-df.rename(columns=name_mapping, inplace=True) # update names
-df.columns = [col.upper() for col in df.columns] # use list comprehension to update the column names to be all uppercase
-
+df.rename(columns=name_mapping, inplace=True)
 ```
 
-### Set column names
+### Drop columns
 ```
-df.columns = ['channel', 'downstream_spacing', 'freestream', 'wake']
+df.drop(columns=['Humidity', 'Pressure', 'Salinity'], inplace=True) 
 ```
+
 
 ### Drop duplicates
 ```
