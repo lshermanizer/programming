@@ -3,10 +3,16 @@
 df = pd.DataFrame({})
 ```
 
-### Quickly inspect a dataframe
+### Quickly inspect a dataframe and columns including statistics
 ```
 print(df.info(verbose = True))
 df.head()
+df['income'].count()
+df['income'].value_counts()
+df['income'].unique()
+df['income'].nunique()
+df['income'].sum()
+df['income'][df['category']=='Adult'].sum()
 ```
 
 ### Column and index
