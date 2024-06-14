@@ -51,13 +51,20 @@ df.columns = [col.upper() for col in df.columns] # use list comprehension to upd
 
 ```
 
-
-### Index
+### Set column names
 ```
-del = pd.DataFrame(del) # list to dataframe
-del.columns = ['channel', 'downstream_spacing', 'freestream', 'wake'] # give names
-del = lifetime_DEL.set_index(['downstream_spacing', 'channel']) # set indices
+df.columns = ['channel', 'downstream_spacing', 'freestream', 'wake']
+```
 
+
+### `.set_index` and `.reset_index`
+```
+df.set_index(['modeID', 'IEO'], inplace=True) # make existing columns into indices
+df.reset_index(drop=True, inplace=True) # make indices into columns
+```
+
+### Indexing with multi-index
+```
 del.loc[(3.33, slice(None)), :] # get a slice of the dataframe for spacing=3.33
 del.loc[(slice(None), 'tower_top_Mx'), 'wake']  # get a slice of the dataframe for channel=tower_top_Mx and for the column "wake"
 
@@ -68,7 +75,6 @@ array([(3.33, 'tower_top_Mx'),
 
 del.loc[(slice(None), 'tower_top_Mx'), 'wake'].index.get_level_values(0)[0:3] # return 0th-level index only
 Float64Index([3.33, 5.0, 6.0], dtype='float64', name='downstream_spacing')
-
 ```
 
 
