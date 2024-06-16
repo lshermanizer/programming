@@ -10,6 +10,7 @@ df.groupby('category')                       # returns a `DataFrameGroupBy` obje
 # descriptive info
 df.groupby('category').describe()            # gives a summary view
 df.groupby('category')['age'].hist()         # gives histogram of age for each group
+df.groupby('ModeID')['ModeName'].unique() 
 
 # group information
 df.groupby('category').groups                # returns a dictionary, keys=groups, values=axis labels in each group
