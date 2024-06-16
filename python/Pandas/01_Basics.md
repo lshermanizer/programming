@@ -83,7 +83,7 @@ df.drop_duplicates('ModeName', keep='first', inplace=True)
 ### `.set_index` and `.reset_index`
 ```
 df.set_index(['modeID', 'IEO'], inplace=True) # make existing columns into indices
-df.reset_index(drop=True, inplace=True) # make indices into columns
+df.reset_index(drop=True, inplace=True) # make indices into columns. `drop=False` will duplicate the indices as columns
 ```
 
 ### Indexing with multi-index
