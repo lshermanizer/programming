@@ -74,15 +74,30 @@ horizontal lines (axhline) and rectangles (axvspan).
 
 ### use a colormap
 ```
+# generate N colors based on the colormap "jet" within range 0-1
+
 import matplotlib.pylab as pylab
-
-# generate N colors based on the colormap "jet" within range 0-1 
 colors = pylab.cm.jet(np.linspace(0,1,N))
+```
 
-# get default color cycle
-cmap = plt.get_cmap("tab10")
+### get the default color cycle, and cycle through it
+Example 1
+```
+cmap = plt.get_cmap(`tab10`)
 for i in range(10):
    ax.plot(x, y, color=cmap(i), linestyle = '-')
+```
+
+Example 2
+```
+cmap = plt.get_cmap(`tab10`)
+ax.scatter(df['RPM'], df['Freq'], s=df['%EL'], color=cmap(np.mod(df['ModeID'], 10)))
+```
+
+### color names (see https://matplotlib.org/stable/users/explain/colors/colors.html)
+```
+ax.plot(x, y, color='tab:blue')
+ax.plot(x, y, color='xkcd:gray')
 ```
 
 ### add colorbar to a subplot
