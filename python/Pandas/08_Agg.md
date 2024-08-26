@@ -17,6 +17,9 @@ dfgrp.get_group(('TR1234', '1T', 5))       # use tuple for a group key
 dfagg = df.groupby(['TR', 'Mode', 'EO']).agg({'%EL': 'idxmax',
                                               'EO': 'first'
                                              })
+dfagg = df.groupby(['TR', 'Mode', 'EO']).agg((maxEL_idx = ('%EL', 'idxmax'),
+                                              EO = ('EO', 'first')
+                                             )) # alternate syntax, explictly assigns a name to the aggregated column
 dfagg['RPM'] = df.loc(dfagg['%EL'], 'RPM').values                     # get RPM that corresponds to the max %EL
 dfagg['%EL'] = df.groupby(['TR', 'Mode', 'EO']).agg({'%EL': 'mean'})  # overwrite the %EL aggregration
 dfagg
