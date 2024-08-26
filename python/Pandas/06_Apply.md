@@ -1,12 +1,6 @@
-# `Lambda` function and Pandas' `.apply()` method
+# Pandas' `.apply()` method
 
-[ref1](https://www.analyticsvidhya.com/blog/2020/03/what-are-lambda-functions-in-python/), 
-[ref2](https://www.datacamp.com/community/tutorials/pandas-apply)
-[ref3](https://www.youtube.com/watch?v=3k2TEVqBh6M&list=PLQut5OXpV-0ir4IdllSt1iEZKTwFBa7kO&index=59)
-
-Use `lambda` function and `.apply()` method in Pandas without using for loops
-
-------------
+## `Lambda` function
 
 ### `Lambda` vs. regular functions
 ```
@@ -60,10 +54,25 @@ df['category'] = df['age'].apply(lambda x: 'Adult' if x>=18 else 'Child')
 
 # create a new column `income2age` based on values from 2 columns
 df['income2age'] = df.apply(lambda x: x['income']/x['age'], axis=1)
+```
 
-# call a function
+## Standard function
+```
+def fnc_age_descriptor(age):
+  if age < 18:
+    descr = 'juvenile'
+  else:
+    descr = 'adult'
+return descr
+
 def fnc_income_to_age(income, age):
   return income/age
+
+# one argument
+df['ageDescrip'] = df['age'].apply(fnc_age_descriptor)
+df['ageDescrip'] = df.apply(lambda x: fnc_age_descriptor(x['age']), axis=1) # equivalent to above. "axis=1" is necessary.
+
+# more than one argument
 df['income2age'] = df.apply(lambda x: fnc_income_to_age(x['income'], x['age']), axis=1)
 
 ```
